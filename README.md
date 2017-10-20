@@ -23,16 +23,14 @@ def hanle(event, context):
 This repo contains a `build.sh` script that's intended to be run in an Amazon
 Linux docker container, and build lxml for py27 and py36 for use in AWS Lambda.
 
-To build the latest lxml, pull the Amazon Linux image and run the build script in
-it.
+To build the latest lxml (or any other platform-specific compiled libraries like numpy),
+run the following:
 
 ```sh
-$ docker pull amazonlinux:2016.09
 $ docker run -v $(pwd):/outputs -it lambci/lambda:build-python{2.7|3.6} \
-      /bin/bash /outputs/build.sh
+      pip install lxml -t /outputs/
 ```
 
-Once you run this, you'll have a two folders named `py27` and `py36` each of them
-containing a folder called `lxml` (ignore the other one with the dist-info), which
-is the one you are going to place in the root of the lambda package as specified
-in the [example](#example-usage)
+Once you run this, you'll have a folder called `lxml` (you can ignore the other one
+with the dist-info), which is the one you are going to place in the root of the
+lambda package as specified in the [example](#example-usage)
