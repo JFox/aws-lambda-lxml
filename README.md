@@ -28,7 +28,7 @@ it.
 
 ```sh
 $ docker pull amazonlinux:2016.09
-$ docker run -v $(pwd):/outputs -it amazonlinux:2016.09 \
+$ docker run -v $(pwd):/outputs -it lambci/lambda:build-python{2.7|3.6} \
       /bin/bash /outputs/build.sh
 ```
 
