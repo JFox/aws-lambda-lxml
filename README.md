@@ -13,7 +13,7 @@ AWS Lambda precomiled binaries for lxml built for python 2.7 and python 3.6 runt
 from lxml import etree
 
 
-def hanle(event, context):
+def handle(event, context):
     return etree.fromstring(event)
 
 ```
